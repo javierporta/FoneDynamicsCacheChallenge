@@ -12,19 +12,19 @@ This is a practical exam asked for Fone Dynamics as a first step of the intervie
 ### ICache<TKey, TValue> Interface
 The cache must implement the following interface.
 
-public interface ICache<TKey, TValue>
-{
-    /// <summary>
-    /// Adds the value to the cache against the specified key.
-    /// If the key already exists, its value is updated.
-    /// </summary>
-    void AddOrUpdate(TKey key, TValue value);
-    /// <summary>
-    /// Attempts to gets the value from the cache against the specified key
-    /// and returns true if the key existed in the cache.
-    /// </summary>
-    bool TryGetValue(TKey key, out TValue value);
-}
+    public interface ICache<TKey, TValue>
+    {
+        /// <summary>
+        /// Adds the value to the cache against the specified key.
+        /// If the key already exists, its value is updated.
+        /// </summary>
+        void AddOrUpdate(TKey key, TValue value);
+        /// <summary>
+        /// Attempts to gets the value from the cache against the specified key
+        /// and returns true if the key existed in the cache.
+        /// </summary>
+        bool TryGetValue(TKey key, out TValue value);
+    }
 
 ### Eviction Policy
 When the cache is constructed, it should take as an argument the maximum number of elements stored in the cache.
@@ -54,6 +54,20 @@ XML document generated at building was copied to root of the repo and it is call
 
 Just build project to download nuget packages.
 
+## Example of usage 
+
+### 1. Create cache
+
+    var cache = new FoneDynamicsCache(100);
+
+### 2. Save data on cache
+
+    cache.AddOrUpdate("1", "cumbia1");
+
+### 3. Retrieve data from cache
+
+    object resultValue = "";
+    cache.TryGetValue(keyToTest, out resultValue);
 
 ## Unit Tests
 
