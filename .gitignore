@@ -1,0 +1,11 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/FoneDynamicsCache
+/FoneDynamicsCache.Test/bin/Debug
+/FoneDynamicsCache.Test/obj/Debug
+/FoneDynamicsCache.Test/Properties
+/packages
+/FoneDynamicsCache/obj
+/FoneDynamicsCache/bin/Debug/netstandard1.4

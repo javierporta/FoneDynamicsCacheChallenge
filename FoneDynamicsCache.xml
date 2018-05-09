@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FoneDynamicsCache</name>
+    </assembly>
+    <members>
+        <member name="T:FoneDynamicsCache.FoneDynamicsCache">
+            <summary>
+            Implementation of ICache
+            </summary>
+            <remarks>
+            Requisites: Time Complexity 0(1) - Thread-safe - Implement eviction policy (given) - Implement ICache interface (given)
+            </remarks>
+        </member>
+        <member name="F:FoneDynamicsCache.FoneDynamicsCache._cachedData">
+            <summary>
+            Dictionary where cache keys and values are stored
+            </summary>
+        </member>
+        <member name="F:FoneDynamicsCache.FoneDynamicsCache._cachedDataKeys">
+            <summary>
+            Auxiliar list which handles LRU with time complexity 0(1) operations
+            </summary>
+        </member>
+        <member name="F:FoneDynamicsCache.FoneDynamicsCache._cacheMaxSize">
+            <summary>
+            Max size of cache
+            </summary>
+        </member>
+        <member name="F:FoneDynamicsCache.FoneDynamicsCache.SpaceUsed">
+            <summary>
+            Count of cache keys/values
+            </summary>
+        </member>
+        <member name="M:FoneDynamicsCache.FoneDynamicsCache.#ctor(System.Int32)">
+            <summary>
+            Constructor of FoneDynamicsCache, accepting cache size as a parameter
+            </summary>
+            <param name="cacheSize"></param>
+        </member>
+        <member name="M:FoneDynamicsCache.FoneDynamicsCache.AddOrUpdate(System.String,System.Object)">
+            <summary>
+            Implementation of AddOrUpdate
+            </summary>
+            <remarks>
+            Uses dictionary and linked list with lock to satisfy time complexity, eviction policy and safe thread.
+            </remarks>
+            <param name="cacheKey"></param>
+            <param name="cacheValue"></param>
+        </member>
+        <member name="M:FoneDynamicsCache.FoneDynamicsCache.UpdateValueInCache(System.String,System.Object)">
+            <summary>
+            Perform update operation in cache
+            </summary>
+            <param name="cacheKey"></param>
+            <param name="cacheValue"></param>
+        </member>
+        <member name="M:FoneDynamicsCache.FoneDynamicsCache.AddNewKeyValueInCache(System.String,System.Object)">
+            <summary>
+            Perform add operation in cache
+            </summary>
+            <param name="cacheKey"></param>
+            <param name="cacheValue"></param>
+        </member>
+        <member name="M:FoneDynamicsCache.FoneDynamicsCache.TryGetValue(System.String,System.Object@)">
+            <summary>
+            Implementation of TryGetValue
+            </summary>
+            <remarks>
+            Uses dictionary and linked list with lock to satisfy time complexity, eviction policy and safe thread.
+            </remarks>
+            <param name="cacheKey"></param>
+            <param name="cacheValue"></param>
+            <returns>
+            Return value if key exists and null if not.
+            </returns>
+        </member>
+        <member name="T:ICache`2">
+            <summary>
+            Cache interface given
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:ICache`2.AddOrUpdate(`0,`1)">
+            <summary>
+            Adds the value to the cache against the specified key.
+            If the key already exists, its value is updated.
+            </summary>
+        </member>
+        <member name="M:ICache`2.TryGetValue(`0,`1@)">
+            <summary>
+            Attempts to gets the value from the cache against the specified key
+            and returns true if the key existed in the cache.
+            </summary>
+        </member>
+    </members>
+</doc>
